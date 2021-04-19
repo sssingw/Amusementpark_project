@@ -11,11 +11,19 @@ public class amuse_main {
 				
 					int inputticket = amuse_input.Input_ticket_type();
 									
-					String inputregnum = amuse_input.Input_regist_num();							
+					if(!(inputticket == 1 || inputticket == 2)) {
+						continue;	
+					}	
+					
+					String inputregnum = amuse_input.Input_regist_num();		
+					if (inputregnum.length() > 14) {
+						continue;	
+					}	
+					
 					int age_type1 = amuse_age.ageProcess(inputregnum);
 
 					int inputcount = amuse_input.Input_count();
-
+									
 					int inputpriornum = amuse_input.Input_prior_type();
 
 					int pay_price = 0;
@@ -37,3 +45,4 @@ public class amuse_main {
 			}
 		}
 	}
+

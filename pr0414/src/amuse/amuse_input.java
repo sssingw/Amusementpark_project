@@ -43,7 +43,7 @@ public class amuse_input {
 
 	public static int Input_count() {												//수량을 입력받는 메서드
 		Scanner sc = new Scanner (System.in);
-		System.out.println("몇 개를 주문하시겠습니까?  (최대 10개)");
+		System.out.println("몇 개를 주문하시겠습니까? (최대 10개)");
 		int input_request_num = sc.nextInt();
 
 		while (true) {
@@ -61,8 +61,8 @@ public class amuse_input {
 	public static int Input_prior_type () {												//우대사항을 입력받는 메서드
 		Scanner sc = new Scanner (System.in);
 		System.out.printf("%s\n %d. %s\n %d. %s\n %d. %s\n %d. %s\n %d. %s\n",
-				"우대사항을 선택하세요", amuse_const.none, "없음 (나이 우대는 자동처리)", amuse_const.disabled , "장애인",
-						amuse_const.national, "국가유공자", amuse_const.children, "다자녀", amuse_const.pregnant, "임산부");
+				"우대사항을 선택하세요", amuse_const.none, "없음", amuse_const.disabled , "장애인(40%)",
+						amuse_const.national, "국가유공자(50%)", amuse_const.children, "다자녀(20%)", amuse_const.pregnant, "임산부(15%)");
 		int input_prior_num = sc.nextInt();
 
 		while(true) {
