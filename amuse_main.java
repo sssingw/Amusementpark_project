@@ -1,44 +1,38 @@
-package project;
+package amuse;
 
-import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class amuse_main {
-
-	public static void main(String[] args) {
-
 			
-		int inputticket = 0;
-		amuse_input.Input_ticket(inputticket);
-
-		String inputregnum = "";
-		amuse_input.Input_regnum(inputregnum);					
-		int age_type = amuse_age.ageType(amuse_age.ageProcess(inputregnum));
-
-		int inputcount = 0;
-		amuse_input.Input_count(inputcount);
-
-		int inputpriornum = 0;
-		amuse_input.Input_prior(inputpriornum);
-				
-//		amuse_output.checkTicket(inputticket, inputregnum, inputpriornum);
+		public static void main(String[] args) {
 		
-		int price = 0;
-		if (inputticket == amuse_const.day) {
-			price = amuse_price.day_rateprocess(age_type, inputpriornum, inputcount);
-		} else {
-			price = amuse_price.night_rateprocess(age_type, inputpriornum, inputcount);
+			DecimalFormat df = new DecimalFormat ( "###,###,###,###,###" );
+			while(true) {
+					int inputticket = amuse_input.Input_ticket_type();
+									
+					String inputregnum = amuse_input.Input_regist_num();							
+					int age_type1 = amuse_age.ageProcess(inputregnum);
+
+					int inputcount = amuse_input.Input_count();
+
+					int inputpriornum = amuse_input.Input_prior_type();
+
+					int pay_price = 0;
+					if (inputticket == amuse_const.day) {
+						pay_price = amuse_price.Day_priceProcess(age_type1, inputpriornum, inputcount);
+						System.out.printf("%s %s %s\n", "가격은", df.format(pay_price), "입니다.");
+
+					} else if (inputticket == amuse_const.night) {
+						pay_price = amuse_price.Night_priceProcess(age_type1, inputpriornum, inputcount);
+						System.out.printf("%s %s %s\n", "가격은", df.format(pay_price), "입니다.");
+					}
+					
+					int continue_sel = amuse_input.continue_process();
+
+					if(continue_sel == 2) {
+						System.out.println("종료합니다.");
+						break;
+			}
+			}
 		}
-			System.out.println("가격은 " + price + "입니다.");	
-		System.out.println("감사합니다.");
-		
-		
-	 	
-		System.out.println("계속 발권 하시겠습니까?");
-	
-		
-	
 	}
-	}
-	
-
-
