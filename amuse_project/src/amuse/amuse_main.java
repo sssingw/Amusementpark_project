@@ -1,11 +1,13 @@
 package amuse;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class amuse_main {
-			
-		public static void main(String[] args) {
 		
+		public static void main(String[] args)  throws IOException {
+			ArrayList<amuse_Orderinfo> orderListArray = new ArrayList<amuse_Orderinfo>();
 			DecimalFormat df = new DecimalFormat ( "###,###,###,###,###" );
 			while(true) {
 				
@@ -40,9 +42,11 @@ public class amuse_main {
 
 					if(continue_sel == 2) {
 						System.out.println("종료합니다.");
+						amuse_array.print(inputticket, inputregnum, pay_price, inputcount, inputpriornum, orderListArray);
 						break;
+												
 					}
+					
 			}
 		}
 	}
-

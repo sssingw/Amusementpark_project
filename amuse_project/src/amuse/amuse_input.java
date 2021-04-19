@@ -79,7 +79,7 @@ public class amuse_input {
 	
 	public static int continue_process () {
 		System.out.println("----------------------------");
-		System.out.printf("권종을 선택하세요\n");
+		System.out.printf("계속 발권하시겠습니까?\n");
 		System.out.printf("1. 티켓 발권\n");
 		System.out.printf("2. 종료\n");		
 		Scanner sc = new Scanner (System.in);	
@@ -96,4 +96,3 @@ public class amuse_input {
 		return input_num;		
 	}
 }
-
